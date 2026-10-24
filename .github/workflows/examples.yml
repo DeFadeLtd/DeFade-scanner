@@ -1,0 +1,25 @@
+name: examples
+on:
+  push:
+  pull_request:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Syntax
+        run: |
+          node --check examples/node/rug-score.mjs
+          python -m py_compile examples/python/rug_score.py
+          sh -n examples/curl/rug-score.sh
+      - name: Without a key, each example prints its usage
+        run: |
+          out=$(node examples/node/rug-score.mjs 2>&1 || true); echo "$out" | grep -q "usage:"
+          out=$(python examples/python/rug_score.py 2>&1 || true); echo "$out" | grep -q "usage:"
+          out=$(sh examples/curl/rug-score.sh 2>&1 || true); echo "$out" | grep -q "DEFADE_API_KEY"

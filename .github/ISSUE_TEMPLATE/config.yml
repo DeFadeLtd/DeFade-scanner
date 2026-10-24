@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security problem
+    url: https://github.com/DeFadeLtd/DeFade-scanner/blob/main/SECURITY.md
+    about: Please report vulnerabilities privately, never in a public issue.
+  - name: Account, plan or billing
+    url: mailto:info@defade.org
+    about: Questions about your account or subscription go to info@defade.org.
+  - name: DeFade community on Telegram
+    url: https://t.me/DeFadeChat
+    about: Talk tokens, scans and signals with other DeFade users.

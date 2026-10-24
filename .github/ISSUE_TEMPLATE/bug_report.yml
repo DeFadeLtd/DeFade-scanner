@@ -1,0 +1,40 @@
+name: Bug report
+description: Something on defade.org, the apps, the extension, the bot or the API is broken.
+title: "bug: "
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where
+      options: [Website, iOS app, Android app, Chrome extension, Telegram bot, REST API, MCP connector]
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: And what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How to reproduce it
+      placeholder: |
+        1. Open ...
+        2. Paste ...
+        3. See ...
+  - type: input
+    id: address
+    attributes:
+      label: Token or wallet address, if any
+  - type: input
+    id: version
+    attributes:
+      label: Browser, app or extension version
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Drag images here. Please hide anything private, such as API keys or emails.

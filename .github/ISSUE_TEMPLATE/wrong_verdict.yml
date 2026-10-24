@@ -1,0 +1,49 @@
+name: A verdict looks wrong
+description: DeFade flagged a token that was fine, or missed one that rugged.
+title: "verdict: "
+labels: ["verdict"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Reports like this one are how the score gets better. The more evidence you add, the faster we can trace what the scan saw.
+  - type: input
+    id: address
+    attributes:
+      label: Token address
+      placeholder: Solana mint or 0x address
+    validations:
+      required: true
+  - type: dropdown
+    id: chain
+    attributes:
+      label: Chain
+      options: [Solana, Ethereum, Base, BSC, Robinhood, Arc, Hyperliquid]
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What went wrong
+      options:
+        - It missed a rug (the score was too low)
+        - It flagged a token that was fine (the score was too high)
+        - A figure on a card is wrong
+        - Something else
+    validations:
+      required: true
+  - type: input
+    id: verdict
+    attributes:
+      label: What DeFade showed
+      description: The score and verdict, and roughly when you scanned.
+      placeholder: "e.g. 18% PROBABLY SAFE, scanned 24 Oct around 14:00 UTC"
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: What actually happened
+      description: Wallets, transactions or explorer links that show it. A screenshot of the scan helps.
+    validations:
+      required: true
