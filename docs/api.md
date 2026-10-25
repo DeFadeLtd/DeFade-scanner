@@ -43,10 +43,10 @@ Two endpoints are exceptions: `/v1/bundles` is Solana-only (its EVM counterpart 
 
 ## Units and plans
 
-Every paid plan reaches all 27 endpoints on every chain. Plans differ in their monthly allowance, which is counted in units, and in rate limits.
+Every paid plan reaches all 30 endpoints on every chain. Plans differ in their monthly allowance, which is counted in units, and in rate limits.
 
 - A call costs **1 unit**.
-- Five calls cost **5 units on an EVM chain**, because they read far more: `rug-score`, `funding-origin`, `funding-graph`, `sybil-cluster` and `fresh-wallets`.
+- Six calls cost **5 units on an EVM chain**, because they read far more: `rug-score`, `funding-origin`, `funding-graph`, `sybil-cluster`, `fresh-wallets` and `stress-test`.
 - The errors marked below as not charged cost nothing.
 
 | Plan | Units a month |
@@ -85,6 +85,9 @@ Prices and rate limits are on [defade.org/api-docs#pricing](https://defade.org/a
 | `GET /v1/dev-tracker/:mint` | The developer wallet's history |
 | `GET /v1/deployer-reputation/:mint` | The deployer's launch record |
 | `GET /v1/smart-money/:mint` | Smart money signals |
+| `GET /v1/exit-playbook/:mint` | Exit Playbook: how the same hands' earlier launches peaked and fell, and where this token is on that clock |
+| `GET /v1/insider-pressure/:mint` | Insider Profit Pressure: what the bundles and snipers paid against today's market cap |
+| `GET /v1/stress-test/:mint` | Position Stress Test: your buy, sold after the insiders sell first. `?size=` is the buy in US dollars, 500 by default |
 | `GET /v1/kol/:mint` | Notable holders |
 | `GET /v1/socials/:mint` | Social links and metadata |
 | `GET /v1/holder-overlap` | Holder overlap across tokens |

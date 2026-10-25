@@ -70,18 +70,18 @@ Pools, burn addresses, lockers, exchange wallets and contracts are labelled firs
 
 ## What DeFade checks
 
-32 modules on every chain, grouped by the question they answer.
+35 modules on every chain, grouped by the question they answer.
 
 | Question | Modules |
 |---|---|
 | **Who holds it?** | Holder Distribution · Whale Alert · Bubble Map · Holder Overlap and Wallet Overlap across up to three tokens · Notable Holders |
 | **How did it launch?** | Bundle Detection: coordinated buys in the launch window (180 s on Solana, 300 s on EVM) plus a sweep of the first 24 hours · Historical Bundles · Sniper Bot Detection: buys in the first 120 s, split into instant and fast · Fee Fingerprint: wallets running one identical bot configuration |
 | **Who is behind the wallets?** | Fresh Wallet Detection, with a virgin check for older wallets whose first token trade ever is this one · Funding Origin: the top 100 holders traced back to exchanges, swaps, bridges or mixers, by KYC tier · Sybil Bands: holders that share a private funder, collapsed into one band, with operator memory across launches · Holder Network: transfers and shared funders between the top holders · Cross-Funding Graph · Copy Trading Detection · Wallet Intelligence: wallets flagged by two or more independent modules |
-| **What did the dev do?** | Dev Wallet Tracking · Deployer Reputation: every token the deployer launched, and how each one ended · Wallet Profiler · Token Lifecycle |
-| **Can you get out?** | LP and Liquidity: burn and lock verification, including v3 and v4 positions · Exit Liquidity Calculator: price impact for a $100 to $100k sell, and the largest safe exit · Dump impact: the largest operator's whole position sold into the pool · Contract Safety (EVM) |
+| **What did the dev do?** | Dev Wallet Tracking · Deployer Reputation: every token the deployer launched, and how each one ended · Exit Playbook: how the same hands' earlier launches peaked and fell, and where this token is on that clock · Wallet Profiler · Token Lifecycle |
+| **Can you get out?** | LP and Liquidity: burn and lock verification, including v3 and v4 positions · Exit Liquidity Calculator: price impact for a $100 to $100k sell, and the largest safe exit · Dump impact: the largest operator's whole position sold into the pool · Insider Profit Pressure: what the bundles and snipers paid against today's price · Position Stress Test: your buy, sold after the insiders sell first · Contract Safety (EVM) |
 | **What is the market saying?** | Smart Money Tracker · Smart Money Signals · Social links · Social Sentiment timeline · X Community · AI summary |
 
-A free account gets the 7 core modules on every scan, plus the headline figures of Bundle Detection and Token Snipers. Pro unlocks the other 24.
+A free account gets the 7 core modules on every scan, plus the headline figures of Bundle Detection and Token Snipers. Pro unlocks the other 27.
 
 ## Inside a scan
 
@@ -145,8 +145,8 @@ DeFade follows four rules:
 | **[defade.org](https://defade.org)** | The full scan, every module, nothing to install |
 | **[Chrome extension](https://chromewebstore.google.com/detail/defade-%E2%80%94-solana-rug-pull/omcpnfjfaedbkakmnmbfjfmdnbpninof)** | A risk badge next to tokens on trading terminals, explorers and charts, and a side panel to scan without leaving the page |
 | **[iOS](https://apps.apple.com/gb/app/defade/id6760209482) and [Android](https://play.google.com/store/apps/details?id=org.defade.app)** | The scanner on your phone |
-| **[Telegram bot](https://t.me/DeFadeAnalyzerBot)** | `/scan` any token on any chain. With Pro, `/watch` a Solana token and get an alert when liquidity is pulled, the price collapses, the dev moves 30% or more, or a top-20 holder sells half their bag |
-| **[REST API](https://defade.org/api-docs)** | 27 endpoints, every chain on every plan; a free 7-day trial key opens six of them |
+| **[Telegram bot](https://t.me/DeFadeAnalyzerBot)** | `/scan` any token on any chain. With Pro, Crew Radar (`/radar on`) alerts you when hands DeFade has seen before launch a new token on pump.fun, bonk.fun and the other Raydium LaunchLab launchpads, Meteora's bonding curve (Jupiter Studio and others) or boop.fun, or on four.meme, flap.sh, Clanker, Zora and the Pons launchpads on BSC, Base, Ethereum, Robinhood and Arc, with where their launches usually peaked, and `/top` follows a token to that peak |
+| **[REST API](https://defade.org/api-docs)** | 30 endpoints, every chain on every plan; a free 7-day trial key opens six of them |
 | **[MCP connector](https://defade.org/api-docs#mcp)** | AI assistants run real DeFade scans inside the conversation: 15 read-only tools at `https://api.defade.org/mcp` |
 
 ## Beyond the scan
@@ -166,7 +166,7 @@ DeFade follows four rules:
 |---|---|---|---|
 | **Price** | $0 | $24 a month | $99 a month |
 | **Scans** | 3 tokens a day | 300 a month | 2,500 a month |
-| **Modules** | 7 core modules, plus the bundle and sniper headlines | All 32 | All 32 |
+| **Modules** | 7 core modules, plus the bundle and sniper headlines | All 35 | All 35 |
 
 A scan is one token: an EVM token counts as two, and once scanned, everything on that token is free for 24 hours. New subscribers get a 7-day free trial. Pay by card or in USDC on Solana. Full details on the [pricing page](https://defade.org/pricing).
 
@@ -193,9 +193,13 @@ From the [whitepaper](https://defade.org/whitepaper#roadmap).
 - [x] Rug Receipts and the Called It feed: the flags that came true, with the numbers
 - [x] A page for every scanned token, on every chain
 - [x] The MCP connector for AI assistants
+- [x] The public API on every chain, Solana and EVM
 - [x] iOS, Android, the Chrome extension and the Telegram bot
 - [x] Notable Holders on the EVM chains
 - [x] Extension overlays: a DeFade risk badge on the trading platforms you already use
+- [x] Trader tools: Exit Playbook, Insider Profit Pressure and Position Stress Test
+- [x] Crew Radar on Telegram: an alert when known hands launch, and at their usual top
+- [x] The trader tools on the API and on the extension badge
 
 **In progress**
 
@@ -205,7 +209,7 @@ From the [whitepaper](https://defade.org/whitepaper#roadmap).
 **Next**
 
 - [ ] More EVM chains, Arbitrum first
-- [ ] Every module as an MCP tool, plus hosted sign-in for the connector
+- [ ] Directory listings and hosted sign-in for the MCP connector, on its 15 tools
 - [ ] Push notifications and real-time alerts
 - [ ] Token comments and community notes
 - [ ] Daily and weekly rug reports

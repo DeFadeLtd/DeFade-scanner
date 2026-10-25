@@ -1,38 +1,45 @@
 # The Telegram bot
 
-[@DeFadeAnalyzerBot](https://t.me/DeFadeAnalyzerBot) runs DeFade scans in Telegram and watches tokens for you.
+[@DeFadeAnalyzerBot](https://t.me/DeFadeAnalyzerBot) runs DeFade scans in Telegram and tells you when hands it has seen before launch again.
 
 ## Commands
 
 | Command | What it does |
 |---|---|
 | `/scan <address>` | A full risk analysis of any token, on any chain DeFade supports. Pasting an address works too |
+| `/radar on` · `/radar off` | Start or stop Crew Radar alerts (Pro, below) |
+| `/top <address>` | Follow a token and get a message as it nears its crew's usual top (Pro). On an EVM chain, add the chain if the bot can't find it: `/top 0x… base` |
+| `/top` | The tokens you follow |
+| `/untop <address>` | Stop following a token |
 | `/trending` | Trending Solana tokens |
-| `/watch <address>` | Watch a token and get alerts (below) |
-| `/watchlist` | The tokens you are watching |
-| `/unwatch <address>` | Stop watching a token |
 | `/connect` | Link your DeFade Pro account |
 | `/stats` | The group's scan stats and leaderboard |
 | `/help` | How to use the bot |
 
-A scan comes back as a card with the score, the verdict and the main findings. Its buttons open each module (bundles, snipers, whales, insiders and more) and the full report on defade.org.
+A scan comes back as one message: a card image, then the token, its verdict, chain and address, and each section of the report under its own title. Its buttons open each module (bundles, snipers, whales, insiders and more) and the full report on defade.org.
 
 ## Free and Pro
 
 - **Free:** 3 scans a day in the [DeFade community](https://t.me/DeFadeChat).
-- **Pro:** scans in a private chat with the bot, the Pro modules on every card, and the watchlist.
+- **Pro:** scans in a private chat with the bot, the Pro modules on every card, and Crew Radar.
 
 To link Pro, send `/connect`, then paste the 6-digit code from your dashboard as a reply.
 
-## Watchlist alerts
+## Crew Radar
 
-Watch up to 10 Solana tokens, each for 7 days. Every watched token is checked every 20 minutes, and you get a message when:
+Crew Radar sends you an alert when hands DeFade has seen before launch a new token: a creator or its funder with rugs on record, an operator band, or a creator whose earlier launches reached a market. It listens to:
 
-| Alert | When it fires |
+| Chain | Launchpads |
 |---|---|
-| **Liquidity pulled** | The pool falls to a fifth of its last reading, or under $1k |
-| **Price collapse** | The price falls 70% or more between two checks |
-| **Dev moved** | The dev wallet's balance drops by 30% or more |
-| **Whale dump** | A top-20 holder with at least 1% of supply sells half their position |
+| **Solana** | pump.fun, bonk.fun and the other Raydium LaunchLab launchpads, Meteora's bonding curve (Jupiter Studio and others), boop.fun |
+| **BSC, Base, Ethereum, Robinhood, Arc** | four.meme, flap.sh, Clanker, Zora and the Pons launchpads |
 
-Each alert fires once per token, so a slow bleed doesn't flood your chat.
+Each alert says why the launch was flagged and carries the crew's usual play from [Exit Playbook](modules.md#what-the-dev-did): where their earlier launches usually peaked, when, and how far they fell after. Its buttons scan the token in the bot, open it on DeFade, copy the whole address, or stop the alerts.
+
+The bot then follows the launch for a day and messages you once as the market cap reaches 80% of the crew's usual peak, and once as the token reaches the age their launches usually peaked at. `/top` follows any other token the same way, up to 25 at a time.
+
+A subscriber gets at most 40 launch alerts a day, and one per crew every three hours. When the daily limit is reached the bot says so, and when alerts resume; the tokens you follow keep messaging you.
+
+## Watchlist
+
+Watchlist alerts (`/watch`, `/watchlist`, `/unwatch`) are paused for now. Scan any token with `/scan` in the meantime.

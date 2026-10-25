@@ -1,8 +1,8 @@
 # The modules
 
-DeFade runs 32 modules on every scan, on every chain it supports. This page explains what each one shows and how to read it. The [README](../README.md#the-verdict) explains how the findings add up to the verdict.
+DeFade runs 35 modules on every scan, on every chain it supports. This page explains what each one shows and how to read it. The [README](../README.md#the-verdict) explains how the findings add up to the verdict.
 
-A free account gets the 7 core modules on every scan, plus the headline figures of Bundle Detection and Token Snipers. Pro unlocks the other 24.
+A free account gets the 7 core modules on every scan, plus the headline figures of Bundle Detection and Token Snipers. Pro unlocks the other 27.
 
 - [Who holds it](#who-holds-it)
 - [How it launched](#how-it-launched)
@@ -26,7 +26,7 @@ A free account gets the 7 core modules on every scan, plus the headline figures 
 
 **Wallet Overlap.** Enter two or three tokens and see the wallets their top holders have in common. A handful of wallets sitting on top of every token you entered is the same-operator signal.
 
-**Notable Holders.** Known traders and influencer wallets among the holders, from a curated wallet list.
+**Notable Holders.** Known traders and influencer wallets among the holders, from a curated wallet list. A row is tagged **received from the dev** when the dev sent that wallet its tokens, or **sent, not bought** when it never bought its position, so a gifted bag never reads as a buy.
 
 ## How it launched
 
@@ -36,6 +36,7 @@ A free account gets the 7 core modules on every scan, plus the headline figures 
 - **Bundled now** (or **Still held**) is what the groups hold today.
 - **Transferred, unsold** is what the groups sent to other wallets, less what those wallets have since sold, still hold, or sent back. It never exceeds the supply or the bundled figure.
 - When a meaningful part of the bundled supply was bought after the launch window, the label says so.
+- **Linked holders** are holders paid by the bundles' funders, wallets or proceeds collectors, counted in Bundled now. A funding check used to stop at two hops: the holder's funder and that wallet's funder. It now follows chains of relay wallets, single-use wallets that pass one amount straight on, past the second hop and up to six hops back. A chain links a holder only when it ends at a wallet the scan already named (a bundle wallet, a bundle funder, a proceeds collector or the creator); an exchange or a bridge ends it and links nothing. Once three or more chains are proven to start at the bundles, the other holders funded through the same relay pattern are counted with the operation too, and the card names them apart.
 
 **Historical Bundles.** The same reading over the token's later life, for groups that formed after launch.
 
@@ -45,7 +46,7 @@ A free account gets the 7 core modules on every scan, plus the headline figures 
 
 ## Who is behind the wallets
 
-**Fresh Wallet Detection.** How old each top holder's wallet was when the token launched, from under a day to 45 days, and whether it is holding, sold, or passed its tokens on. The **virgin check** goes further: an older wallet whose first token trade ever is this one is flagged too, whatever its age.
+**Fresh Wallet Detection.** How old each top holder's wallet was when the token launched, from under a day to 45 days, and whether it is holding, sold, or passed its tokens on. The **virgin check** goes further: an older wallet whose first token trade ever is this one is flagged too, whatever its age. Fresh holders are linked to the bundles the same way Bundle Detection links its holders, through relay chains past the second hop, and a holder funded through the bundles' relay pattern reads **RELAY-FUNDED**.
 
 **Funding Origin.** The top 100 holders traced back, over several hops, to where their money came from: exchanges grouped by KYC tier, swap services, bridges and mixers. The card names the pattern, from broad retail funding to majority no-KYC or mixer-linked funding, and says when too few holders could be traced to be sure.
 
@@ -63,7 +64,9 @@ A free account gets the 7 core modules on every scan, plus the headline figures 
 
 **Dev Wallet Tracking.** What the creator did with their supply: still holding, sold, or moved to other wallets. Creating the pool or locking tokens is not counted as moving them.
 
-**Deployer Reputation.** Every token the deployer launched, how many survived, and its rug history.
+**Deployer Reputation.** Every token the deployer launched, how many survived, and its rug history. A rugger who launches every token from a new wallet starts with a clean record, so the card also reads the wallet that funded the deployer: what that funder launched, what the other deployers it funded launched, and how each one ended. A deployer known as an influencer is named, with its X handle.
+
+**Exit Playbook.** How the earlier launches by the same deployer, the same funders or the same bundle wallets played out, and where this token is on that clock now. Each earlier launch that reached a market is replayed from its one-minute candles: how high it went, how long that took, and how fast it fell after the top. The tiles put this token's age and market cap against their usual peak. It is a record of what these hands did before, not a forecast: a first launch has no record, which is not the same as a clean one.
 
 **Wallet Profiler.** Any holder's trades, win rate, PnL and history, one click from the holder list.
 
@@ -76,6 +79,10 @@ A free account gets the 7 core modules on every scan, plus the headline figures 
 **Exit Liquidity Calculator.** The price impact of selling $100 up to $100,000 into the pool, rated from safe to severe, and the largest sell that stays reasonable.
 
 **Dump impact.** What happens if the largest operator (a bundle group, a sybil band or a known bundler fleet) sold its whole position into the pool: how far the price would fall and how much they would take out.
+
+**Insider Profit Pressure.** What the bundles and the snipers paid for their tokens, against today's market cap: the multiple they sit on, the market cap they break even at, and what selling what they still hold into today's pool would bring them. A group sitting at 20x with most of its bag still held has every reason to sell into the next leg up.
+
+**Position Stress Test.** Pick a buy size. Each row sells it after someone else sells first (the biggest operator, the bundles, the snipers or the dev): what your buy comes back as, the loss, and the new buying it would take to get your money back. **Largest buy within 10%** is the most you could put in and still get out with a loss under 10% if the worst row's sellers go first; "none" means their sale alone costs more than that.
 
 **Contract Safety** (EVM). Owner, mint and tax controls that are still live on the contract. On Solana, mint and freeze authority are part of the base scan.
 
