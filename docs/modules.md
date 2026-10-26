@@ -1,15 +1,15 @@
 # The modules
 
-DeFade runs 35 modules on every scan, on every chain it supports. This page explains what each one shows and how to read it. The [README](../README.md#the-verdict) explains how the findings add up to the verdict.
+DeFade runs 34 modules on every scan, on every chain it supports. This page explains what each one shows and how to read it. The [README](../README.md#the-verdict) explains how the findings add up to the verdict.
 
-A free account gets the 7 core modules on every scan, plus the headline figures of Bundle Detection and Token Snipers. Pro unlocks the other 27.
+A free account gets the 6 core modules on every scan: Rug Pull Probability, Holder Distribution, Liquidity Analysis, Token Lifecycle, and the headline figures of Bundle Detection and Token Snipers. Pro unlocks the other 27.
 
 - [Who holds it](#who-holds-it)
 - [How it launched](#how-it-launched)
 - [Who is behind the wallets](#who-is-behind-the-wallets)
 - [What the dev did](#what-the-dev-did)
 - [Can you get out](#can-you-get-out)
-- [What the market is saying](#what-the-market-is-saying)
+- [What it adds up to](#what-it-adds-up-to)
 - [Reading a scan well](#reading-a-scan-well)
 
 ---
@@ -19,6 +19,8 @@ A free account gets the 7 core modules on every scan, plus the headline figures 
 **Holder Distribution.** The top holders and their share of supply. Pools, burn addresses, lockers, exchange wallets and contracts are labelled, so a pool or a locker is never mistaken for a whale. Read the top 5, 10 and 20 together: one large holder is a risk, and twenty mid-sized holders who turn out to be one person are a bigger one.
 
 **Whale Alert.** Which wallets are big enough to move the price on their own, and what share each one controls. Ask what happens if the top one leaves.
+
+**Top Holder History.** How the top holders' positions have changed over time, each one labelled accumulating, distributing, holding or new. Quiet distribution shows up here before it shows up on the price chart.
 
 **Bubble Map.** The holder base as a picture: one bubble per wallet, sized by holding, with lines where wallets are connected. Scattered, unconnected bubbles are a real crowd. A tight web of linked bubbles holding most of the supply is one group.
 
@@ -40,9 +42,11 @@ A free account gets the 7 core modules on every scan, plus the headline figures 
 
 **Historical Bundles.** The same reading over the token's later life, for groups that formed after launch.
 
-**Sniper Bot Detection.** Wallets that bought in the first 120 seconds, split into instant (10 seconds or less) and fast (30 seconds or less), and what they still hold. The risk level depends on the share the snipers still control, counting what they hold, moved and rotated.
+**Token Snipers.** Wallets that bought in the first 120 seconds, split into instant (10 seconds or less) and fast (30 seconds or less), and what they still hold. The risk level depends on the share the snipers still control, counting what they hold, moved and rotated.
 
 **Fee Fingerprint.** Wallets that paid an identical, unusual fee setting (on Solana the compute-unit price or Jito tip, on EVM the priority fee or gas price), which usually means one bot configuration. It links wallets; it never counts as bundled supply on its own.
+
+**Terminal.** Which bots and apps the top wallets trade through, named and labelled on every module, with a live feed of the token's trades.
 
 ## Who is behind the wallets
 
@@ -50,7 +54,7 @@ A free account gets the 7 core modules on every scan, plus the headline figures 
 
 **Funding Origin.** The top 100 holders traced back, over several hops, to where their money came from: exchanges grouped by KYC tier, swap services, bridges and mixers. The card names the pattern, from broad retail funding to majority no-KYC or mixer-linked funding, and says when too few holders could be traced to be sure.
 
-**Sybil Bands.** Holders funded from the same private wallet are collapsed into one band, with the supply that band controls. **Operator memory** recognises a funder that seeded bands on earlier launches, even after the wallets have been rotated.
+**Sybil Band Clustering.** Holders funded from the same private wallet are collapsed into one band, with the supply that band controls. **Operator memory** recognises a funder that seeded bands on earlier launches, even after the wallets have been rotated.
 
 **Holder Network.** The insider map: transfers and shared funders between the top holders, drawn as a graph. Dense clusters are the finding, above all one wired back to the deployer. If the walk ran out of budget before reaching every holder, the card says so: a partial scan with no links is not a clean token.
 
@@ -58,11 +62,9 @@ A free account gets the 7 core modules on every scan, plus the headline figures 
 
 **Copy Trading Detection.** Wallets mirroring each other's trades on this token. That can be a crowd following one good wallet, or one operator running many; the funding and clustering modules tell which.
 
-**Wallet Intelligence.** The holders flagged by two or more independent modules, for example a fresh wallet that is also in a bundle and an insider band. Agreement between modules weighs more than any single signal.
-
 ## What the dev did
 
-**Dev Wallet Tracking.** What the creator did with their supply: still holding, sold, or moved to other wallets. Creating the pool or locking tokens is not counted as moving them.
+**Dev Wallet Tracker.** What the creator did with their supply: still holding, sold, or moved to other wallets. Creating the pool or locking tokens is not counted as moving them.
 
 **Deployer Reputation.** Every token the deployer launched, how many survived, and its rug history. A rugger who launches every token from a new wallet starts with a clean record, so the card also reads the wallet that funded the deployer: what that funder launched, what the other deployers it funded launched, and how each one ended. A deployer known as an influencer is named, with its X handle.
 
@@ -74,11 +76,9 @@ A free account gets the 7 core modules on every scan, plus the headline figures 
 
 ## Can you get out
 
-**LP and Liquidity.** Pool depth, and whether the liquidity is burned, locked or free to pull, including position-based v3 and v4 pools.
+**Liquidity Analysis.** Pool depth, and whether the liquidity is burned, locked or free to pull, including position-based v3 and v4 pools. Its **Dump Impact** line says what happens if the largest operator (a bundle group, a sybil band or a known bundler fleet) sold its whole position into the pool: how far the price would fall and how much they would take out.
 
 **Exit Liquidity Calculator.** The price impact of selling $100 up to $100,000 into the pool, rated from safe to severe, and the largest sell that stays reasonable.
-
-**Dump impact.** What happens if the largest operator (a bundle group, a sybil band or a known bundler fleet) sold its whole position into the pool: how far the price would fall and how much they would take out.
 
 **Insider Profit Pressure.** What the bundles and the snipers paid for their tokens, against today's market cap: the multiple they sit on, the market cap they break even at, and what selling what they still hold into today's pool would bring them. A group sitting at 20x with most of its bag still held has every reason to sell into the next leg up.
 
@@ -86,15 +86,19 @@ A free account gets the 7 core modules on every scan, plus the headline figures 
 
 **Contract Safety** (EVM). Owner, mint and tax controls that are still live on the contract. On Solana, mint and freeze authority are part of the base scan.
 
-## What the market is saying
+## What it adds up to
 
-**Smart Money Tracker** and **Smart Money Signals.** Profitable wallets among the holders, and what they are doing.
+**Rug Pull Probability.** Every finding above, weighed into one score from 0 to 100. The [README](../README.md#the-verdict) explains the bands and the floors.
 
-**Social links.** The token's website and social accounts, as published.
+**Signal Fusion.** The holders flagged by two or more independent modules, for example a fresh wallet that is also in a bundle and an insider band. Agreement between modules weighs more than any single signal.
 
-**Social Sentiment timeline** and **X Community.** How the conversation around the token has moved.
+**Wallet Reputation.** Wallets seen on tokens that later died. It fires before the wallet does anything on this token. Signal Fusion and Wallet Reputation are read out together in the Wallet Intelligence card.
 
-**AI summary.** A short written summary of the scan's findings.
+**Smart Money Tracker** and **Smart Money Signals.** Profitable wallets among the holders, and what they are buying now.
+
+**Social Sentiment Timeline.** How much the token is talked about on X, whether the posts read bullish or bearish, and how that has moved. Context, never evidence: it does not feed the score.
+
+The scan header also shows the token's website and social accounts as published, and its X community account with its age.
 
 ---
 
