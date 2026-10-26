@@ -70,18 +70,20 @@ Pools, burn addresses, lockers, exchange wallets and contracts are labelled firs
 
 ## What DeFade checks
 
-35 modules on every chain, grouped by the question they answer.
+34 modules on every chain, grouped by the question they answer.
 
 | Question | Modules |
 |---|---|
-| **Who holds it?** | Holder Distribution · Whale Alert · Bubble Map · Holder Overlap and Wallet Overlap across up to three tokens · Notable Holders |
-| **How did it launch?** | Bundle Detection: coordinated buys in the launch window (180 s on Solana, 300 s on EVM) plus a sweep of the first 24 hours · Historical Bundles · Sniper Bot Detection: buys in the first 120 s, split into instant and fast · Fee Fingerprint: wallets running one identical bot configuration |
-| **Who is behind the wallets?** | Fresh Wallet Detection, with a virgin check for older wallets whose first token trade ever is this one · Funding Origin: the top 100 holders traced back to exchanges, swaps, bridges or mixers, by KYC tier · Sybil Bands: holders that share a private funder, collapsed into one band, with operator memory across launches · Holder Network: transfers and shared funders between the top holders · Cross-Funding Graph · Copy Trading Detection · Wallet Intelligence: wallets flagged by two or more independent modules |
-| **What did the dev do?** | Dev Wallet Tracking · Deployer Reputation: every token the deployer launched, and how each one ended · Exit Playbook: how the same hands' earlier launches peaked and fell, and where this token is on that clock · Wallet Profiler · Token Lifecycle |
-| **Can you get out?** | LP and Liquidity: burn and lock verification, including v3 and v4 positions · Exit Liquidity Calculator: price impact for a $100 to $100k sell, and the largest safe exit · Dump impact: the largest operator's whole position sold into the pool · Insider Profit Pressure: what the bundles and snipers paid against today's price · Position Stress Test: your buy, sold after the insiders sell first · Contract Safety (EVM) |
-| **What is the market saying?** | Smart Money Tracker · Smart Money Signals · Social links · Social Sentiment timeline · X Community · AI summary |
+| **Who holds it?** | Holder Distribution · Whale Alert · Top Holder History: each top holder accumulating, distributing, holding or new · Bubble Map · Holder Overlap and Wallet Overlap across up to three tokens · Notable Holders |
+| **How did it launch?** | Bundle Detection: coordinated buys in the launch window (180 s on Solana, 300 s on EVM) plus a sweep of the first 24 hours · Historical Bundles · Token Snipers: buys in the first 120 s, split into instant and fast · Fee Fingerprint: wallets running one identical bot configuration · Terminal: the bots and apps the top wallets trade through |
+| **Who is behind the wallets?** | Fresh Wallet Detection, with a virgin check for older wallets whose first token trade ever is this one · Funding Origin: the top 100 holders traced back to exchanges, swaps, bridges or mixers, by KYC tier · Sybil Band Clustering: holders that share a private funder, collapsed into one band, with operator memory across launches · Holder Network: transfers and shared funders between the top holders · Cross-Funding Graph · Copy Trading Detection |
+| **What did the dev do?** | Dev Wallet Tracker · Deployer Reputation: every token the deployer launched, and how each one ended · Exit Playbook: how the same hands' earlier launches peaked and fell, and where this token is on that clock · Wallet Profiler · Token Lifecycle |
+| **Can you get out?** | Liquidity Analysis: burn and lock verification, including v3 and v4 positions, and Dump Impact, the largest operator's whole position sold into the pool · Exit Liquidity Calculator: price impact for a $100 to $100k sell, and the largest safe exit · Insider Profit Pressure: what the bundles and snipers paid against today's price · Position Stress Test: your buy, sold after the insiders sell first · Contract Safety (EVM) |
+| **What does it add up to?** | Rug Pull Probability · Signal Fusion: wallets flagged by two or more independent modules · Wallet Reputation: wallets seen on earlier rugs (both read out in the Wallet Intelligence card) · Smart Money Tracker · Smart Money Signals · Social Sentiment Timeline |
 
-A free account gets the 7 core modules on every scan, plus the headline figures of Bundle Detection and Token Snipers. Pro unlocks the other 27.
+The scan header also carries the token's social links and its X community account.
+
+A free account gets the 6 core modules on every scan: Rug Pull Probability, Holder Distribution, Liquidity Analysis, Token Lifecycle, and the headline figures of Bundle Detection and Token Snipers. Pro unlocks the other 27.
 
 ## Inside a scan
 
@@ -166,7 +168,7 @@ DeFade follows four rules:
 |---|---|---|---|
 | **Price** | $0 | $24 a month | $99 a month |
 | **Scans** | 3 tokens a day | 300 a month | 2,500 a month |
-| **Modules** | 7 core modules, plus the bundle and sniper headlines | All 35 | All 35 |
+| **Modules** | 6 core modules, the bundle and sniper headlines among them | All 34 | All 34 |
 
 A scan is one token: an EVM token counts as two, and once scanned, everything on that token is free for 24 hours. New subscribers get a 7-day free trial. Pay by card or in USDC on Solana. Full details on the [pricing page](https://defade.org/pricing).
 
